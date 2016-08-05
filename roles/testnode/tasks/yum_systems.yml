@@ -47,6 +47,18 @@
     owner: root
     mode: 0644
 
+# Temporary fix for https://access.redhat.com/discussions/2252561
+# We believe the true issue to be due to a regression introduced during
+# a recent lab router code upgrade
+- name: Set sysctl net.ipv4.ip_no_pmtu_disc=1
+  sysctl:
+    name: net.ipv4.ip_no_pmtu_disc
+    value: 1
+    state: present
+    sysctl_set: yes
+    reload: yes
+  when: ansible_distribution_major_version == "7"
+
 # http://tracker.ceph.com/issues/15272
 # We don't know why it's happening, but something is corrupting the
 # rpmdb.  Let's try just rebuilding it every time.
