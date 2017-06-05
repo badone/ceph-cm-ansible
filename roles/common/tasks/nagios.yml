@@ -5,7 +5,7 @@
 
 - name: Include yum_systems vars
   include_vars: yum_systems.yml
-  when: ansible_pkg_mgr == "yum"
+  when: ansible_pkg_mgr == "dnf"
 
 # Returns 0 if found and 1 if not found
 # Task fails if not found.  Hence ignore_errors: true
