@@ -18,6 +18,9 @@
 - include: yum_systems.yml
   when: ansible_pkg_mgr == "yum"
 
+- include: yum_systems.yml
+  when: ansible_pkg_mgr == "dnf"
+
 # configure things specific to apt systems
 - include: apt_systems.yml
   when: ansible_pkg_mgr == "apt"
