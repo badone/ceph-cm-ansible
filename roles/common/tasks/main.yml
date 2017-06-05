@@ -53,8 +53,8 @@
     - nagios
 
 # configure selinux for nagios
-- include: nrpe-selinux.yml
-  when: ansible_os_family == "RedHat" and
-        (selinux_status is defined and selinux_status.stdout != "Disabled")
-  tags:
-    - nagios
+#- include: nrpe-selinux.yml
+#  when: ansible_os_family == "RedHat" and
+#        (selinux_status is defined and selinux_status.stdout != "Disabled")
+#  tags:
+#    - nagios
